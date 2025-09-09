@@ -1,4 +1,6 @@
-const express = require('express'); // require use karo
+require('dotenv').config;
+const express = require('express');
+const port=process.env.PORT;
 const app = express();
 
 // middleware
@@ -10,7 +12,7 @@ app.get('/', (req, res) => {
 });
 
 // server listen
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log("Server is running on port 5000");
 });
 
