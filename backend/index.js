@@ -5,6 +5,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
+const user=require('./routes/userRoute');
+
 // Define the port (from .env or default to 5000)
 const PORT = process.env.PORT || 5000;
 
@@ -16,7 +18,7 @@ app.use(express.json());
 
 // Connect to the database
 database();
-
+app.use('/api/user',user);
 // Define a simple test route
 app.get('/', (req, res) => {
     res.json({ message: 'This is simple server' });
